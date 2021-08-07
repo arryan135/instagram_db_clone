@@ -30,3 +30,8 @@ INNER JOIN users
 GROUP BY photos.id
 ORDER BY total_likes DESC
 LIMIT 1;
+
+-- Our investors want to know 
+-- How many times does the average user post?
+SELECT 
+  (SELECT COUNT(*) FROM photos) / (SELECT COUNT(*) FROM users) AS avg;
