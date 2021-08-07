@@ -43,3 +43,18 @@ INNER JOIN photo_tags
   ON tags.id = photo_tags.tag_id
 GROUP BY photo_tags.tag_id
 ORDER BY count DESC LIMIT 5;
+
+-- We have a small problem with bots on our site 
+-- Find the users who have liked every single photo on our site
+SELECT 
+  username,
+  COUNT(*) AS num_likes
+FROM users
+JOIN likes
+  ON likes.user_id = users.id
+GROUP BY users.id
+HAVING num_likes = (SELECT COUNT(*) FROM photos);
+
+-- NOTE: 
+-- WHERE is used before the GROUP BY 
+-- HVAING is used on the data we get after we `GROUP BY` the data
