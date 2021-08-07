@@ -19,3 +19,14 @@ SELECT username AS "inactive_users" FROM users
 LEFT JOIN photos
   ON users.id = photos.user_id
 WHERE photos.user_id IS NULL;
+
+-- We're running a new contest to see who can get the most likes on a single photo
+-- Find the user with the most likes on a single photo
+SELECT username, photo_id, image_url, COUNT(*) AS "total_likes" FROM photos
+INNER JOIN likes
+  ON likes.photo_id = photos.id
+INNER JOIN users
+  ON users.id = photos.user_id
+GROUP BY photos.id
+ORDER BY total_likes DESC
+LIMIT 1;
