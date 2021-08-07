@@ -35,3 +35,11 @@ LIMIT 1;
 -- How many times does the average user post?
 SELECT 
   (SELECT COUNT(*) FROM photos) / (SELECT COUNT(*) FROM users) AS avg;
+
+-- A brand wants to know which hastags to use in a post
+-- What are the top 5 most commonly used hashtags?
+SELECT tags.tag_name, COUNT(*) AS "count" FROM tags
+INNER JOIN photo_tags
+  ON tags.id = photo_tags.tag_id
+GROUP BY photo_tags.tag_id
+ORDER BY count DESC LIMIT 5;
