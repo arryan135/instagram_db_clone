@@ -57,4 +57,4 @@ HAVING num_likes = (SELECT COUNT(*) FROM photos);
 
 -- NOTE: 
 -- WHERE is used before the GROUP BY 
--- HVAING is used on the data we get after we `GROUP BY` the data
+-- HAVING is used on the data we get after we `GROUP BY` the data
