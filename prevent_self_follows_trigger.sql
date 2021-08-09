@@ -14,3 +14,4 @@ CREATE TRIGGER prevent_self_follows
 $$
 
 DELIMITER ;
+
