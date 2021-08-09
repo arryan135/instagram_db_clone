@@ -1,6 +1,6 @@
-DELIMITER 
+DELIMITER $$
 
-$$
+
 CREATE TRIGGER prevent_self_follows
   BEFORE INSERT ON follows FOR EACH ROW
   BEGIN
